@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "task-likho"
+    }
+  },
+  "defaultProject": "task-likho",
+  "cli": {
+    "analytics": false
+  }
 }
