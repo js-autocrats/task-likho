@@ -1,4 +1,4 @@
-npm run build &&
+ng build --prod --base-href=/task-likho/ &&
 echo "build success" &&
 git checkout master &&
 echo "moving to master-branch" &&
