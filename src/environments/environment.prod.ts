@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  serviceDomain: 'https://stackhack-autocrats.herokuapp.com/task-likho'
 };
