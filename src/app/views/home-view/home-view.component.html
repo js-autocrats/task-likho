@@ -1,5 +1,9 @@
 <section>
     <div>
-        
+        <div *ngFor="let task of tasksList">
+            <div>
+                <app-task-tile [task]="task"></app-task-tile>
+            </div>
+        </div>
     </div>
 </section>
