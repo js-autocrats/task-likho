@@ -13,11 +13,6 @@ export class HomeViewComponent implements OnInit {
   tasksList: Task[];
 
   ngOnInit(): void {
-
-
-  tasksList: Task[];
-
-  ngOnInit(): void {
     this.tasksList = [
       {
         "title": "Tutorials",
