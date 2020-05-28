@@ -14,6 +14,10 @@ export class HomeViewComponent implements OnInit {
 
   ngOnInit(): void {
 
+
+  tasksList: Task[];
+
+  ngOnInit(): void {
     this.tasksList = [
       {
         "title": "Tutorials",

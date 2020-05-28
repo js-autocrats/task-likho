@@ -1,11 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+// Components
 import { AppComponent } from './app.component';
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TaskTileComponent } from './components/task-tile/task-tile.component';
+
+// Modules
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -16,7 +23,14 @@ import { TaskTileComponent } from './components/task-tile/task-tile.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+
+
+    // Material modules
+    MatToolbarModule,
+    MatButtonModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
