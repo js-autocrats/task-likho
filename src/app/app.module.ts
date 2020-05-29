@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TaskTileComponent } from './components/task-tile/task-tile.component';
+import { CreateTaskComponent } from './components/create-task/create-task.component';
+import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -15,19 +17,27 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeViewComponent,
     HeaderComponent,
-    TaskTileComponent
+    TaskTileComponent,
+    CreateTaskComponent,
+    CreateTaskFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
+    FlexLayoutModule,
 
     // Material modules
     MatToolbarModule,
@@ -35,7 +45,8 @@ import { MatCardModule } from '@angular/material/card';
     MatExpansionModule,
     MatCheckboxModule,
     MatCardModule,
-
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
