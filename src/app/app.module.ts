@@ -28,6 +28,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,18 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatSnackBar,
+
+
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 40,
+      outerStrokeWidth: 8,
+      innerStrokeWidth: 4,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+    })
 
   ],
   providers: [],
