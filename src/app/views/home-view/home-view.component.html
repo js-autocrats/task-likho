@@ -11,20 +11,7 @@
 
         <ng-container *ngFor="let task of tasksList">
 
-            <mat-accordion class="d-block mb-2">
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            {{task?.title}}
-                        </mat-panel-title>
-                        <mat-panel-description>
-                            {{task?.description}}
-                        </mat-panel-description>
-                    </mat-expansion-panel-header>
-
-                    Todo list here...
-                </mat-expansion-panel>
-            </mat-accordion>
+            <app-task-tile [task]="task"></app-task-tile>
 
         </ng-container>
 

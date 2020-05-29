@@ -28,16 +28,18 @@ export class HomeViewComponent implements OnInit {
         "taskId": "123123",
         "todoList": [
           {
-            "title": "React tutorials",
+            "title": "React tutorials part 1",
             "description": "Learn react tutorials",
             "id": 0,
-            "todoId": "ab12"
+            "todoId": "ab12",
+            isChecked: false,
           },
           {
-            "title": "React tutorials",
+            "title": "React tutorials part 2",
             "description": "Learn react tutorials",
             "id": 1,
-            "todoId": "ab13"
+            "todoId": "ab13",
+            isChecked: false,
           },
         ]
       },
@@ -51,13 +53,22 @@ export class HomeViewComponent implements OnInit {
             "title": "React tutorials",
             "description": "Learn react tutorials",
             "id": 0,
-            "todoId": "ab12"
+            "todoId": "ab12", 
+            isChecked: false,
           },
           {
             "title": "React tutorials",
             "description": "Learn react tutorials",
             "id": 1,
-            "todoId": "ab13"
+            "todoId": "ab13",
+            isChecked: false,
+          },
+          {
+            "title": "React tutorials",
+            "description": "Learn react tutorials",
+            "id": 1,
+            "todoId": "ab13",
+            isChecked: false,
           },
         ]
       },
@@ -71,13 +82,15 @@ export class HomeViewComponent implements OnInit {
             "title": "React tutorials",
             "description": "Learn react tutorials",
             "id": 0,
-            "todoId": "ab12"
+            "todoId": "ab12",
+            isChecked: false,
           },
           {
             "title": "React tutorials",
             "description": "Learn react tutorials",
             "id": 1,
-            "todoId": "ab13"
+            "todoId": "ab13",
+            isChecked: false,
           },
         ]
       }
