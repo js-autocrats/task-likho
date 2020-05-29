@@ -9,9 +9,8 @@ import * as _ from 'lodash';
   styleUrls: ['./task-tile.component.scss']
 })
 export class TaskTileComponent implements OnInit {
-clear
+
   @Input() task: Task;
-  isChecked: boolean = false;
   taskCompletedInPercentage: number = 0;
 
   constructor() { }
@@ -21,11 +20,16 @@ clear
 
   OnChange(event: MatCheckboxChange, index: number){
     this.task.todoList[index].isChecked = event.checked;
-    this.taskCompletedInPercentage = this.taskCompletedInPercentage + (100 / this.task.todoList.length);
-    if (this.task.todoList[index].isChecked) {
-      let temp = this.task.todoList[index];
-      _.pull(this.task.todoList,temp);
-      this.task.todoList.push(temp);
+    if (event.checked) {
+      this.taskCompletedInPercentage = this.taskCompletedInPercentage + (100 / this.task.todoList.length);
+
+      /// To move the completed checklist to end of the array from its current position.
+
+      // let temp = this.task.todoList[index];
+      // _.pull(this.task.todoList,temp);
+      // this.task.todoList.push(temp);
+    } else {
+      this.taskCompletedInPercentage = this.taskCompletedInPercentage - (100 / this.task.todoList.length);
     }
   }
 
