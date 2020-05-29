@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
     // Material modules
     MatToolbarModule,
     MatButtonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatCardModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

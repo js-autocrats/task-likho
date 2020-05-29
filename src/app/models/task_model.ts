@@ -11,4 +11,5 @@ export interface TODO {
     "description": string;
     "id": number;
     "todoId": string;
+    "isChecked": boolean;
 }
