@@ -5,11 +5,18 @@
                 <mat-panel-title>
                     {{task?.title}}
                 </mat-panel-title>
-                <mat-panel-description>
-                    {{task?.description}} {{taskCompletedInPercentage | number : '1.0-2' }}%
+                <mat-panel-description fxLayout fxLayoutGap="15px">
+                    {{task?.description}}
+                    
                 </mat-panel-description>
             </mat-expansion-panel-header>
-    
+
+            <!-- circular progress indicatior -->
+            <!-- <circle-progress
+                [percent]="taskCompletedInPercentage"
+                [animationDuration]="300"
+            ></circle-progress> -->
+
             <div *ngFor="let item of task?.todoList; let i = index">
                 <div class="mb-3">
                     <mat-checkbox class="m-0" 

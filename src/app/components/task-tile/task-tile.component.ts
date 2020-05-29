@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Task } from 'src/app/models/task_model';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import * as _ from 'lodash';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-task-tile',
