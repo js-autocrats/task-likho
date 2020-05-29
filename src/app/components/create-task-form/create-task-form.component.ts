@@ -53,7 +53,7 @@ export class CreateTaskFormComponent implements OnInit, OnChanges, OnDestroy {
     this.taskService.createTask(this.taskForm.value)
       .pipe(takeUntil(this.unSubscribe))
       .subscribe(res => {
-        console.log(res)
+        console.log(res);
         this.dialogRef.close();
       });
   }

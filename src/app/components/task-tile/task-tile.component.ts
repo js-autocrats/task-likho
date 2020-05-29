@@ -11,6 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class TaskTileComponent implements OnInit {
 
+
   @Input() task: Task;
   taskCompletedInPercentage: number = 0;
 
