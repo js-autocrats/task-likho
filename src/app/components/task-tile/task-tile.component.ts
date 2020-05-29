@@ -20,18 +20,18 @@ export class TaskTileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  OnChange(event: MatCheckboxChange, index: number){
-    this.task.todoList[index].isChecked = event.checked;
+  OnChange(event: MatCheckboxChange, index: number) {
+    this.task.checkList[index].isChecked = event.checked;
     if (event.checked) {
-      this.taskCompletedInPercentage = this.taskCompletedInPercentage + (100 / this.task.todoList.length);
+      this.taskCompletedInPercentage = this.taskCompletedInPercentage + (100 / this.task.checkList.length);
 
       /// To move the completed checklist to end of the array from its current position.
 
-      // let temp = this.task.todoList[index];
-      // _.pull(this.task.todoList,temp);
-      // this.task.todoList.push(temp);
+      // let temp = this.task.checkList[index];
+      // _.pull(this.task.checkList,temp);
+      // this.task.checkList.push(temp);
     } else {
-      this.taskCompletedInPercentage = this.taskCompletedInPercentage - (100 / this.task.todoList.length);
+      this.taskCompletedInPercentage = this.taskCompletedInPercentage - (100 / this.task.checkList.length);
     }
   }
 

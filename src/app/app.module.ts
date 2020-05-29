@@ -29,7 +29,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatSnackBar,
+    MatSnackBarModule,
 
 
     NgCircleProgressModule.forRoot({
