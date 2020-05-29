@@ -9,7 +9,7 @@ import * as _ from 'lodash';
   styleUrls: ['./task-tile.component.scss']
 })
 export class TaskTileComponent implements OnInit {
-clear
+  clear
   @Input() task: Task;
   isChecked: boolean = false;
   taskCompletedInPercentage: number = 0;
@@ -19,13 +19,13 @@ clear
   ngOnInit(): void {
   }
 
-  OnChange(event: MatCheckboxChange, index: number){
-    this.task.todoList[index].isChecked = event.checked;
-    this.taskCompletedInPercentage = this.taskCompletedInPercentage + (100 / this.task.todoList.length);
-    if (this.task.todoList[index].isChecked) {
-      let temp = this.task.todoList[index];
-      _.pull(this.task.todoList,temp);
-      this.task.todoList.push(temp);
+  OnChange(event: MatCheckboxChange, index: number) {
+    this.task.checkList[index].isChecked = event.checked;
+    this.taskCompletedInPercentage = this.taskCompletedInPercentage + (100 / this.task.checkList.length);
+    if (this.task.checkList[index].isChecked) {
+      let temp = this.task.checkList[index];
+      _.pull(this.task.checkList, temp);
+      this.task.checkList.push(temp);
     }
   }
 
