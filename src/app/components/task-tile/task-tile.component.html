@@ -1,1 +1,24 @@
-<p>task-tile works!</p>
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{task?.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{task?.description}} {{taskCompletedInPercentage | number : '1.0-2' }}%
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div *ngFor="let item of task?.todoList; let i = index">
+            <mat-card class="mb-3" fxLayout [ngClass]="(item?.isChecked ) ? 'bg-success text-white font-weight-normal' : 'bg-light'">
+                <mat-checkbox class="m-0" 
+                    (change)="OnChange($event, i)" 
+                    (checked)="item?.value"
+                    >
+                    {{item?.title}}
+                </mat-checkbox>
+            </mat-card>
+        </div>
+
+    </mat-expansion-panel>
+</mat-accordion>
