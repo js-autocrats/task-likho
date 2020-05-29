@@ -19,6 +19,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+// import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -36,13 +43,21 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
 
     FlexLayoutModule,
+    ReactiveFormsModule,
 
     // Material modules
     MatToolbarModule,
     MatButtonModule,
     MatExpansionModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    // MatMomentDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
