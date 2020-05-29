@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serviceDomain: 'https://stackhack-autocrats.herokuapp.com/task-api'
+  serviceDomain: 'https://stackhack-autocrats.herokuapp.com/'
 };
 
 /*
