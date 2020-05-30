@@ -30,6 +30,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatChipsModule } from '@angular/material/chips';
+import { StatusViewComponent } from './components/status-view/status-view.component';
+import { LabelsViewComponent } from './components/labels-view/labels-view.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HeaderComponent,
     TaskTileComponent,
     CreateTaskComponent,
-    CreateTaskFormComponent
+    CreateTaskFormComponent,
+    StatusViewComponent,
+    LabelsViewComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatInputModule,
     MatSelectModule,
     MatSnackBarModule,
+    MatChipsModule,
 
 
     NgCircleProgressModule.forRoot({

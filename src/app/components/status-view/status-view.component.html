@@ -1,0 +1,5 @@
+<mat-chip-list aria-label="status selection">
+  <mat-chip *ngIf="status==='NEW'" color="primary" selected>New</mat-chip>
+  <mat-chip *ngIf="status==='IN_PROGRESS'" color="accent" selected>In Progress</mat-chip>
+  <mat-chip *ngIf="status==='COMPLETED'" color="warn" selected>Completed</mat-chip>
+</mat-chip-list>
