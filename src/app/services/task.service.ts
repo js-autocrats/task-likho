@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Task } from '../models/task_model';
+import { Task, CheckList } from '../models/task_model';
 
 @Injectable({
   providedIn: 'root'
@@ -56,4 +56,6 @@ export class TaskService {
 
     return this.httpClient.delete<Task>(url);
   }
+
+
 }

@@ -9,7 +9,7 @@ import { CreateTaskFormComponent } from '../create-task-form/create-task-form.co
 })
 export class CreateTaskComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }

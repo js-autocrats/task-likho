@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { TaskTileComponent } from './components/task-tile/task-tile.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
+import { CheckListTileComponent } from './components/check-list-tile/check-list-tile.component';
+import { CreateCheckListFormComponent } from './components/create-check-list-form/create-check-list-form.component';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +32,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HeaderComponent,
     TaskTileComponent,
     CreateTaskComponent,
-    CreateTaskFormComponent
+    CreateTaskFormComponent,
+    CheckListTileComponent,
+    CreateCheckListFormComponent,
+    // MatTimePickerDirective,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +54,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
     FlexLayoutModule,
     ReactiveFormsModule,
+    AmazingTimePickerModule,
 
     // Material modules
     MatToolbarModule,
@@ -78,6 +85,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    CreateCheckListFormComponent,
+    CreateTaskFormComponent
+  ]
 })
 export class AppModule { }

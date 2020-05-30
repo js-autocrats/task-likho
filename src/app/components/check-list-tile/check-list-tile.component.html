@@ -1,0 +1,5 @@
+<div class="mb-3">
+    <mat-checkbox class="m-0" (change)="OnChange($event)">
+        <span [innerHtml]="checkListItem?.title" [ngClass]="{'strikeOff': checkListItem?.isChecked}"></span>
+    </mat-checkbox>
+</div>
