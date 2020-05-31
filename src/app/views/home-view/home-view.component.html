@@ -3,7 +3,7 @@
 
     
 
-    <ng-container *ngIf="tasksList.length; then taskTile; else welcomeTiles"></ng-container>
+    <ng-container *ngIf="tasksList?.length; then taskTile; else welcomePlaceholders"></ng-container>
     
     <ng-template #taskTile>
       <div class="mb-3" fxLayoutAlign="start center">
@@ -15,7 +15,7 @@
       </div>
     </ng-template>
 
-    <ng-template #welcomeTiles>
+    <ng-template #welcomePlaceholders>
       <div class="bg-danger text-white" style="height: 100vh" fxLayout fxLayoutAlign="center center">
         <h1 class="font">Welcome to task लिखो.</h1>
       </div>

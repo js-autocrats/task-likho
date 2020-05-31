@@ -1,16 +1,23 @@
 <div class="mb-3">
   <mat-accordion>
     <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
+      <mat-expansion-panel-header fxLayout>
+        
+        <mat-panel-title fxFlex="40" class="mr-0 w-40">
           {{task?.title}}
         </mat-panel-title>
-        <mat-panel-description fxLayout fxLayoutGap="15px" fxLayoutAlign="space-between center">
-          <p>{{task?.description}}</p>
-          <p class="my-1">
-            <app-date-viewer [date]="task?.dueDate"></app-date-viewer>
-          </p>
+        
+        <mat-panel-description fxFlex class="w-25">
+          <div fxLayout fxLayoutAlign="space-between" class="w-100">
+            <div fxFlex="75%" fxHide.xs>
+              <p class="text-ellipse m-0" >{{task?.description}}</p>
+            </div>
+            <div fxFlex fxLayoutAlign="end center">
+              <app-date-viewer [date]="task?.dueDate"></app-date-viewer>
+            </div>
+          </div>
         </mat-panel-description>
+      
       </mat-expansion-panel-header>
 
       <!-- circular progress indicatior -->
@@ -18,8 +25,8 @@
                 [percent]="taskCompletedInPercentage"
                 [animationDuration]="300"
             ></circle-progress> -->
-      <div fxLayout fxLayoutGap="20px" fxLayoutAlign="start center">
-        <span fxFlex="50%">Add a check list </span>
+      <div fxLayout fxLayoutGap="20px" fxLayoutAlign="start center" fxLayoutAlingn.xs="space-between">
+        <span fxFlex="40" fxFlex.xs="0">Add a check list </span>
         <button mat-icon-button color="warn" aria-label="Add check list" (click)="addACheckList()">
           <mat-icon>add_circle_outline</mat-icon>
         </button>

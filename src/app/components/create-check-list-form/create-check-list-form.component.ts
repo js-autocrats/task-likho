@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, MaxLengthValidator } from '@angular/forms';
 import { AmazingTimePickerService } from 'amazing-time-picker';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -31,7 +31,7 @@ export class CreateCheckListFormComponent implements OnInit {
       dueDate: new FormControl(new Date().toISOString()),
       dueTime: new FormControl('')
     });
-    this.taskId = this.data.taskId;
+    this.taskId = this.data?.id;
   }
 
   myFilter = (d: Date | null): boolean => {

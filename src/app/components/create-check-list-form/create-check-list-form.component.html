@@ -4,13 +4,13 @@
             <div fxFlex>
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Title</mat-label>
-                    <input type="text" matInput placeholder="Task title" formControlName="title">
+                    <input type="text" matInput maxlength="50" minlength="15" placeholder="Task title" formControlName="title">
                 </mat-form-field>
             </div>
             <div fxFlex>
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Description</mat-label>
-                    <textarea matInput placeholder="task description" formControlName="description" rows="5"></textarea>
+                    <textarea matInput maxlength="200" minlength="15" placeholder="task description" formControlName="description" rows="5"></textarea>
                 </mat-form-field>
             </div>
         </div>
@@ -19,7 +19,7 @@
             
             <mat-form-field fxFlex="calc(50% - 15px)" color="accent" appearance="outline">
                 <mat-label>Due Date</mat-label>
-                    <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="dueDates" formControlName="dueDate">
+                    <input matInput [matDatepickerFilter]="myFilter"  [matDatepicker]="dueDates" formControlName="dueDate">
                 <mat-datepicker-toggle matSuffix [for]="dueDates"></mat-datepicker-toggle>
                 <mat-datepicker #dueDates></mat-datepicker>
             </mat-form-field>
