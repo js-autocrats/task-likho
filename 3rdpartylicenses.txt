@@ -116,6 +116,9 @@ MIT
 @angular/router
 MIT
 
+amazing-time-picker
+MIT
+
 bootstrap
 MIT
 The MIT License (MIT)
