@@ -33,6 +33,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatChipsModule } from '@angular/material/chips';
 import { StatusViewComponent } from './components/status-view/status-view.component';
 import { LabelsViewComponent } from './components/labels-view/labels-view.component';
+import { DateViewerComponent } from './components/date-viewer/date-viewer.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { LabelsViewComponent } from './components/labels-view/labels-view.compon
     CreateTaskComponent,
     CreateTaskFormComponent,
     StatusViewComponent,
-    LabelsViewComponent
+    LabelsViewComponent,
+    DateViewerComponent
   ],
   imports: [
     BrowserModule,
