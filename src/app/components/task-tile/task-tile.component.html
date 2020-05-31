@@ -5,9 +5,11 @@
         <mat-panel-title>
           {{task?.title}}
         </mat-panel-title>
-        <mat-panel-description fxLayout fxLayoutGap="15px">
-          {{task?.description}}
-
+        <mat-panel-description fxLayout fxLayoutGap="15px" fxLayoutAlign="space-between center">
+          <p>{{task?.description}}</p>
+          <p class="my-1">
+            <app-date-viewer [date]="task?.dueDate"></app-date-viewer>
+          </p>
         </mat-panel-description>
       </mat-expansion-panel-header>
 
@@ -16,38 +18,22 @@
                 [percent]="taskCompletedInPercentage"
                 [animationDuration]="300"
             ></circle-progress> -->
-      <div fxLayout="row" fxLayoutGap="10px">
-        <div fxFlex="65%">
-          <div *ngFor="let item of task?.checkList; let i = index">
-            <div class="mb-3">
-              <mat-checkbox class="m-0" (change)="OnChange($event, i)">
-                <span [innerHtml]="item?.title" [ngClass]="{'strikeOff': item?.isChecked}"></span>
-              </mat-checkbox>
-            </div>
-          </div>
+
+      <div *ngFor="let item of task?.checkList; let i = index">
+        <div class="mb-3">
+          <mat-checkbox class="m-0" (change)="OnChange($event, i)">
+            <span [innerHtml]="item?.title" [ngClass]="{'strikeOff': item?.isChecked}"></span>
+          </mat-checkbox>
         </div>
-        <div fxFlex="30%" fxLayout="column" fxLayoutGap="10px">
-          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
-            <div><b>Status:</b></div>
-            <div>
-              <app-status-view [status]="task?.status"></app-status-view>
-            </div>
-
-          </div>
-          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
-            <div><b>Label:</b></div>
-            <div>
-              <app-labels-view [labels]="task?.labels"></app-labels-view>
-            </div>
-
-          </div>
-          <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
-            <div><b>Due Date:</b></div>
-            <div> {{task?.dueDate | date: 'dd/MM/yyy'}}</div>
-          </div>
-        </div>
-
       </div>
+
+
+      <mat-action-row fxLayout fxLayoutGap="10px">
+        <app-status-view [status]="task?.status"></app-status-view>
+        <app-labels-view [labels]="task?.labels"></app-labels-view>
+      </mat-action-row>
+
+
 
     </mat-expansion-panel>
   </mat-accordion>
