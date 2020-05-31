@@ -5,9 +5,11 @@
         <mat-panel-title>
           {{task?.title}}
         </mat-panel-title>
-        <mat-panel-description fxLayout fxLayoutGap="15px">
-          {{task?.description}}
-
+        <mat-panel-description fxLayout fxLayoutGap="15px" fxLayoutAlign="space-between center">
+          <p>{{task?.description}}</p>
+          <p class="my-1">
+            <app-date-viewer [date]="task?.dueDate"></app-date-viewer>
+          </p>
         </mat-panel-description>
       </mat-expansion-panel-header>
 
@@ -26,6 +28,14 @@
       <div *ngFor="let item of task?.checkList; let i = index">
         <app-check-list-tile [checkListItem]="item" [shareOfCheckListInTask]="singleCheckListPartInTask "></app-check-list-tile>
       </div>
+
+
+      <mat-action-row fxLayout fxLayoutGap="10px">
+        <app-status-view [status]="task?.status"></app-status-view>
+        <app-labels-view [labels]="task?.labels"></app-labels-view>
+      </mat-action-row>
+
+
 
     </mat-expansion-panel>
   </mat-accordion>
