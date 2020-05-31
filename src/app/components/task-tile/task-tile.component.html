@@ -18,13 +18,15 @@
                 [percent]="taskCompletedInPercentage"
                 [animationDuration]="300"
             ></circle-progress> -->
+      <div fxLayout fxLayoutGap="20px" fxLayoutAlign="start center">
+        <span fxFlex="50%">Add a check list </span>
+        <button mat-icon-button color="warn" aria-label="Add check list" (click)="addACheckList()">
+          <mat-icon>add_circle_outline</mat-icon>
+        </button>
+      </div>
 
       <div *ngFor="let item of task?.checkList; let i = index">
-        <div class="mb-3">
-          <mat-checkbox class="m-0" (change)="OnChange($event, i)">
-            <span [innerHtml]="item?.title" [ngClass]="{'strikeOff': item?.isChecked}"></span>
-          </mat-checkbox>
-        </div>
+        <app-check-list-tile [checkListItem]="item" [shareOfCheckListInTask]="singleCheckListPartInTask "></app-check-list-tile>
       </div>
 
 

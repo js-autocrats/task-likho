@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from 'src/app/models/task_model';
-import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateCheckListFormComponent } from '../create-check-list-form/create-check-list-form.component';
 import * as _ from 'lodash';
-import { BrowserModule } from '@angular/platform-browser';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from 'src/app/services/notifications.service';
 
 @Component({
   selector: 'app-task-tile',
@@ -13,26 +15,49 @@ export class TaskTileComponent implements OnInit {
 
 
   @Input() task: Task;
-  taskCompletedInPercentage: number = 0;
+  singleCheckListPartInTask: number;
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private notification: NotificationService,
+  ) { }
 
   ngOnInit(): void {
+    let totalCountOfCheckListsForATask: number;
+
+    this.task?.checkListStats != null 
+      ? totalCountOfCheckListsForATask = this?.task?.checkListStats[0]?.checkListId?.total
+      : null;
+    
+    try {
+      this.singleCheckListPartInTask = ( 100.0 / totalCountOfCheckListsForATask );
+    } catch(e) {
+      console.log(e);
+    }
+
+    //Event change receiver to get the portion of task completed.
+    this.notification.checkListItemTriggered.subscribe(res => {
+      this.singleCheckListPartInTask = res;
+    });
   }
 
-  OnChange(event: MatCheckboxChange, index: number) {
-    this.task.checkList[index].isChecked = event.checked;
-    if (event.checked) {
-      this.taskCompletedInPercentage = this.taskCompletedInPercentage + (100 / this.task.checkList.length);
+  /**
+   * Calling dialog to create a checklist
+   */
+  addACheckList() {
+    const dialogRef = this.dialog.open(CreateCheckListFormComponent,{
+      width: '500px',
+      data: this.task?.taskId,
+    });
 
-      /// To move the completed checklist to end of the array from its current position.
-
-      // let temp = this.task.checkList[index];
-      // _.pull(this.task.checkList,temp);
-      // this.task.checkList.push(temp);
-    } else {
-      this.taskCompletedInPercentage = this.taskCompletedInPercentage - (100 / this.task.checkList.length);
-    }
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.snackBar.open('Check list is created successfully','', {
+          duration: 2000,
+        })
+      }
+    });
   }
 
 }

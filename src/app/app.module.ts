@@ -8,6 +8,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { TaskTileComponent } from './components/task-tile/task-tile.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
+import { CheckListTileComponent } from './components/check-list-tile/check-list-tile.component';
+import { CreateCheckListFormComponent } from './components/create-check-list-form/create-check-list-form.component';
+import { StatusViewComponent } from './components/status-view/status-view.component';
+import { LabelsViewComponent } from './components/labels-view/labels-view.component';
+import { DateViewerComponent } from './components/date-viewer/date-viewer.component';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -30,10 +35,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { MatChipsModule } from '@angular/material/chips';
-import { StatusViewComponent } from './components/status-view/status-view.component';
-import { LabelsViewComponent } from './components/labels-view/labels-view.component';
-import { DateViewerComponent } from './components/date-viewer/date-viewer.component';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +47,9 @@ import { DateViewerComponent } from './components/date-viewer/date-viewer.compon
     TaskTileComponent,
     CreateTaskComponent,
     CreateTaskFormComponent,
+    CheckListTileComponent,
+    CreateCheckListFormComponent,
+    // MatTimePickerDirective,
     StatusViewComponent,
     LabelsViewComponent,
     DateViewerComponent
@@ -55,6 +62,7 @@ import { DateViewerComponent } from './components/date-viewer/date-viewer.compon
 
     FlexLayoutModule,
     ReactiveFormsModule,
+    AmazingTimePickerModule,
 
     // Material modules
     MatToolbarModule,
@@ -86,6 +94,10 @@ import { DateViewerComponent } from './components/date-viewer/date-viewer.compon
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    CreateCheckListFormComponent,
+    CreateTaskFormComponent
+  ]
 })
 export class AppModule { }

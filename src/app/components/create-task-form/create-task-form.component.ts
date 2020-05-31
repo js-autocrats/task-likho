@@ -35,12 +35,9 @@ export class CreateTaskFormComponent implements OnInit, OnChanges, OnDestroy {
     return this.taskForm.get('labels') as FormArray;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  ngOnChanges(): void {
-
-  }
+  ngOnChanges(): void { }
 
   myFilter = (d: Date | null): boolean => {
     const day = (d || new Date());
@@ -49,14 +46,15 @@ export class CreateTaskFormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   onSubmit() {
-    console.log(this.taskForm.value);
-    this.taskService.createTask(this.taskForm.value)
+    console.log(this.taskForm?.value);
+    this.taskService.createTask(this.taskForm?.value)
       .pipe(takeUntil(this.unSubscribe))
       .subscribe(res => {
         console.log(res);
         this.dialogRef.close();
       });
   }
+
   ngOnDestroy() {
     this.unSubscribe.next();
     this.unSubscribe.complete();

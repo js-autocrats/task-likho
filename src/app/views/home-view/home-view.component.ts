@@ -23,7 +23,8 @@ export class HomeViewComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unSubscribe))
       .subscribe(res => {
         this.tasksList = res;
-      });
+      }
+    );
   }
 
   ngOnDestroy() {
