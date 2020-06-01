@@ -31,7 +31,7 @@ export class CreateCheckListFormComponent implements OnInit {
       dueDate: new FormControl(new Date().toISOString()),
       dueTime: new FormControl('')
     });
-    this.taskId = this.data?.id;
+    this.taskId = this.data?.taskId;
   }
 
   myFilter = (d: Date | null): boolean => {

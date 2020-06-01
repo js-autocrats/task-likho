@@ -21,11 +21,11 @@
       </mat-expansion-panel-header>
 
       <!-- circular progress indicatior -->
-      <!-- <circle-progress
-                [percent]="taskCompletedInPercentage"
-                [animationDuration]="300"
-            ></circle-progress> -->
-      <div fxLayout fxLayoutGap="20px" fxLayoutAlign="start center" fxLayoutAlingn.xs="space-between">
+        <!-- <circle-progress
+          [percent]="portionOfTaskCompleted"
+          [animationDuration]="300"
+        ></circle-progress> -->
+      <div fxLayout fxLayoutAlign="start center" fxLayoutAlingn.xs="space-between">
         <span fxFlex="40" fxFlex.xs="0">Add a check list </span>
         <button mat-icon-button color="warn" aria-label="Add check list" (click)="addACheckList()">
           <mat-icon>add_circle_outline</mat-icon>
@@ -37,7 +37,7 @@
       </div>
 
 
-      <mat-action-row fxLayout fxLayoutGap="10px">
+      <mat-action-row fxLayout fxLayoutGap="10px" class="pr-3">
         <app-status-view [status]="task?.status"></app-status-view>
         <app-labels-view [labels]="task?.labels"></app-labels-view>
       </mat-action-row>

@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Task } from 'src/app/models/task_model';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCheckListFormComponent } from '../create-check-list-form/create-check-list-form.component';
-import * as _ from 'lodash';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotificationService } from 'src/app/services/notifications.service';
 
@@ -15,7 +14,8 @@ export class TaskTileComponent implements OnInit {
 
 
   @Input() task: Task;
-  singleCheckListPartInTask: number;
+  singleCheckListPartInTask: number = 0;
+  portionOfTaskCompleted: number = 0;
 
   constructor(
     private dialog: MatDialog,
@@ -24,10 +24,10 @@ export class TaskTileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let totalCountOfCheckListsForATask: number;
+    let totalCountOfCheckListsForATask: number = 0;
 
     this.task?.checkListStats != null 
-      ? totalCountOfCheckListsForATask = this?.task?.checkListStats[0]?.checkListId?.total
+      ? totalCountOfCheckListsForATask = this?.task?.checkListStats[0]?.checkListId?.total 
       : null;
     
     try {
@@ -38,7 +38,7 @@ export class TaskTileComponent implements OnInit {
 
     //Event change receiver to get the portion of task completed.
     this.notification.checkListItemTriggered.subscribe(res => {
-      this.singleCheckListPartInTask = res;
+      this.portionOfTaskCompleted = this.portionOfTaskCompleted + res?.data;
     });
   }
 
@@ -47,7 +47,7 @@ export class TaskTileComponent implements OnInit {
    */
   addACheckList() {
     const dialogRef = this.dialog.open(CreateCheckListFormComponent,{
-      width: '500px',
+      width: '600px',
       data: this.task?.taskId,
     });
 
