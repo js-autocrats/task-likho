@@ -1,11 +1,16 @@
 <section class="mt-3">
   <div class="container">
 
-    <div class="mb-3" fxLayoutAlign="start center">
-      <h1 class="m-0">My tasks</h1>
+    <div class="mb-3" fxLayout fxLayoutAlign="start center" fxLayoutGap="15%">
+      <div>
+        <h1 class="m-0">My tasks</h1>
+      </div>
+      <div class="w-75 h-75">
+        <app-search-filter-task [taskList]="tasksList" (taskFilter)="onTaskFilter($event)"></app-search-filter-task>
+      </div>
     </div>
 
-    <ng-container *ngFor="let task of tasksList">
+    <ng-container *ngFor="let task of filteredTaskList">
 
       <app-task-tile [task]="task"></app-task-tile>
 

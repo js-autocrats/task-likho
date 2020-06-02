@@ -8,6 +8,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { TaskTileComponent } from './components/task-tile/task-tile.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
+import { StatusViewComponent } from './components/status-view/status-view.component';
+import { LabelsViewComponent } from './components/labels-view/labels-view.component';
+import { DateViewerComponent } from './components/date-viewer/date-viewer.component';
+import { SearchFilterTaskComponent } from './components/search-filter-task/search-filter-task.component';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -31,9 +35,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatChipsModule } from '@angular/material/chips';
-import { StatusViewComponent } from './components/status-view/status-view.component';
-import { LabelsViewComponent } from './components/labels-view/labels-view.component';
-import { DateViewerComponent } from './components/date-viewer/date-viewer.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { DateViewerComponent } from './components/date-viewer/date-viewer.compon
     CreateTaskFormComponent,
     StatusViewComponent,
     LabelsViewComponent,
-    DateViewerComponent
+    DateViewerComponent,
+    SearchFilterTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +75,7 @@ import { DateViewerComponent } from './components/date-viewer/date-viewer.compon
     MatSelectModule,
     MatSnackBarModule,
     MatChipsModule,
+    MatAutocompleteModule,
 
 
     NgCircleProgressModule.forRoot({
