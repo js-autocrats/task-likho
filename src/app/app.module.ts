@@ -12,6 +12,7 @@ import { StatusViewComponent } from './components/status-view/status-view.compon
 import { LabelsViewComponent } from './components/labels-view/labels-view.component';
 import { DateViewerComponent } from './components/date-viewer/date-viewer.component';
 import { SearchFilterTaskComponent } from './components/search-filter-task/search-filter-task.component';
+import { CreateCheckListFormComponent } from './components/create-check-list-form/create-check-list-form.component';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +38,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CheckListTileComponent } from './components/check-list-tile/check-list-tile.component';
 
 @NgModule({
   declarations: [
