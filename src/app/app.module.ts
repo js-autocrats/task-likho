@@ -8,11 +8,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { TaskTileComponent } from './components/task-tile/task-tile.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { CreateTaskFormComponent } from './components/create-task-form/create-task-form.component';
-import { CheckListTileComponent } from './components/check-list-tile/check-list-tile.component';
-import { CreateCheckListFormComponent } from './components/create-check-list-form/create-check-list-form.component';
 import { StatusViewComponent } from './components/status-view/status-view.component';
 import { LabelsViewComponent } from './components/labels-view/labels-view.component';
 import { DateViewerComponent } from './components/date-viewer/date-viewer.component';
+import { SearchFilterTaskComponent } from './components/search-filter-task/search-filter-task.component';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -37,7 +36,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { MatChipsModule } from '@angular/material/chips';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -52,7 +51,8 @@ import { MatChipsModule } from '@angular/material/chips';
     // MatTimePickerDirective,
     StatusViewComponent,
     LabelsViewComponent,
-    DateViewerComponent
+    DateViewerComponent,
+    SearchFilterTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +80,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatSelectModule,
     MatSnackBarModule,
     MatChipsModule,
+    MatAutocompleteModule,
 
 
     NgCircleProgressModule.forRoot({
