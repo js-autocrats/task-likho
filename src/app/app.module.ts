@@ -34,6 +34,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
@@ -45,6 +46,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     TaskTileComponent,
     CreateTaskComponent,
     CreateTaskFormComponent,
+    CheckListTileComponent,
+    CreateCheckListFormComponent,
+    // MatTimePickerDirective,
     StatusViewComponent,
     LabelsViewComponent,
     DateViewerComponent,
@@ -58,6 +62,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
     FlexLayoutModule,
     ReactiveFormsModule,
+    AmazingTimePickerModule,
 
     // Material modules
     MatToolbarModule,
@@ -90,6 +95,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    CreateCheckListFormComponent,
+    CreateTaskFormComponent
+  ]
 })
 export class AppModule { }

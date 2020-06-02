@@ -1,0 +1,39 @@
+<form [formGroup]="checkListForm" (ngSubmit)="onSubmit()">
+    <div fxLayout="column">
+        <div fxLayout="column">
+            <div fxFlex>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Title</mat-label>
+                    <input type="text" matInput maxlength="50" minlength="15" placeholder="Task title" formControlName="title">
+                </mat-form-field>
+            </div>
+            <div fxFlex>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput maxlength="200" minlength="15" placeholder="task description" formControlName="description" rows="5"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+    
+        <div class="picker-container" fxLayout fxLayout.xs="column">
+            
+            <mat-form-field fxFlex="calc(50% - 15px)" color="accent" appearance="outline">
+                <mat-label>Due Date</mat-label>
+                    <input matInput [matDatepickerFilter]="myFilter"  [matDatepicker]="dueDates" formControlName="dueDate">
+                <mat-datepicker-toggle matSuffix [for]="dueDates"></mat-datepicker-toggle>
+                <mat-datepicker #dueDates></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field color="accent" appearance="outline" fxFlex="50%">
+                <mat-label>Due Time</mat-label>
+                    <input matInput atp-time-picker (clcik)="open()" formControlName="dueTime">
+                <mat-icon matSuffix>alarm</mat-icon>
+            </mat-form-field>
+
+        </div>
+
+        <div fxFlex fxLayoutAlign="center center">
+            <button mat-raised-button color="primary" [mat-dialog-close]="true" type="submit">Save</button>
+        </div>
+    </div>
+</form>

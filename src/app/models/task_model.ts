@@ -1,5 +1,5 @@
 export class Task {
-  id: number;
+  id: string;
   taskId: string;
   title: string;
   description: string;
@@ -28,7 +28,7 @@ export interface CheckListStats {
 export interface CheckList {
   title: string;
   description: string;
-  id: number;
+  id: string;
   checkListId: string;
   isChecked: boolean;
 }
