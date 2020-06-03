@@ -56,7 +56,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     StatusViewComponent,
     LabelsViewComponent,
     DateViewerComponent,
-    LoginViewComponent
+    LoginViewComponent,
     SearchFilterTaskComponent
   ],
   imports: [
