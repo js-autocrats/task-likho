@@ -37,6 +37,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { MatChipsModule } from '@angular/material/chips';
+import { LoginViewComponent } from './views/login-view/login-view.component';
 
 
 @NgModule({
@@ -52,10 +53,11 @@ import { MatChipsModule } from '@angular/material/chips';
     // MatTimePickerDirective,
     StatusViewComponent,
     LabelsViewComponent,
-    DateViewerComponent
+    DateViewerComponent,
+    LoginViewComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'js-autocrats' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -90,7 +92,8 @@ import { MatChipsModule } from '@angular/material/chips';
       outerStrokeColor: "#78C000",
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
-    })
+    }),
+
 
   ],
   providers: [],
