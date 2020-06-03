@@ -13,6 +13,9 @@ import { LabelsViewComponent } from './components/labels-view/labels-view.compon
 import { DateViewerComponent } from './components/date-viewer/date-viewer.component';
 import { SearchFilterTaskComponent } from './components/search-filter-task/search-filter-task.component';
 import { CreateCheckListFormComponent } from './components/create-check-list-form/create-check-list-form.component';
+import { LoginViewComponent } from './views/login-view/login-view.component';
+import { CheckListTileComponent } from './components/check-list-tile/check-list-tile.component';
+
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +41,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { CheckListTileComponent } from './components/check-list-tile/check-list-tile.component';
 
 @NgModule({
   declarations: [
@@ -54,10 +56,11 @@ import { CheckListTileComponent } from './components/check-list-tile/check-list-
     StatusViewComponent,
     LabelsViewComponent,
     DateViewerComponent,
+    LoginViewComponent,
     SearchFilterTaskComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'js-autocrats' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -93,7 +96,8 @@ import { CheckListTileComponent } from './components/check-list-tile/check-list-
       outerStrokeColor: "#78C000",
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
-    })
+    }),
+
 
   ],
   providers: [],

@@ -12,3 +12,8 @@ p, ul, li { margin: 0 }
     white-space: nowrap;
     word-wrap: normal;
 }
+a {
+    &:hover {
+        text-decoration: none;
+    }
+}
