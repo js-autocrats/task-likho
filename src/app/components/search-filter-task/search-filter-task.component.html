@@ -1,0 +1,12 @@
+<div id="search-bar">
+  <mat-form-field class="w-75 " appearance="outline">
+    <input type="text" placeholder="Search task" aria-label="task" matInput [formControl]="myControl"
+      [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let task of filteredOptions | async" [value]="task.title">
+        {{task?.title}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+</div>
