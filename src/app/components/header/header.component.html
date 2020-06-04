@@ -8,7 +8,7 @@
         </a>
     </div>
     <div>
-        <button mat-button routerLink="login">{{authButton}}</button>
+        <button mat-button routerLink="/" (click)="authButton === 'Logout' ? logout() : null">{{authButton}}</button>
     </div>
 
 </mat-toolbar>

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, OnChanges, DoCheck } from '@angular/core'
 import { Task } from 'src/app/models/task_model';
 import { TaskService } from 'src/app/services/task.service';
 import { Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -23,7 +24,8 @@ export class HomeViewComponent implements OnInit, OnDestroy {
       .subscribe(res => {
         this.tasksList = res;
         this.filteredTaskList = this.tasksList;
-      });
+      }
+    );
   }
 
   ngOnInit(): void {
