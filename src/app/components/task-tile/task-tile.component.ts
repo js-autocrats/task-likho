@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Task } from 'src/app/models/task_model';
+import { Task, CheckListFormType } from 'src/app/models/task_model';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateCheckListFormComponent } from '../create-check-list-form/create-check-list-form.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -46,9 +46,10 @@ export class TaskTileComponent implements OnInit {
    * Calling dialog to create a checklist
    */
   addACheckList() {
+    const taskId =  this.task?.taskId != null ? this.task?.taskId : this.task?.id ;
     const dialogRef = this.dialog.open(CreateCheckListFormComponent,{
       width: '600px',
-      data: this.task?.taskId,
+      data: { taskId: taskId, formType: CheckListFormType.addCheckList },
     });
 
     dialogRef.afterClosed().subscribe(result => {

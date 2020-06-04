@@ -68,8 +68,11 @@ export class LoginViewComponent implements OnInit {
         }
         //YOUR CODE HERE
         if(profile != null) {
-          this.localStorage.setItem('userprofileData', userData);
+          localStorage.setItem('userprofileData', JSON.stringify(userData));
           this.router.navigateByUrl('/home');
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
         } else {
           this.snackBar.open('Login failed ! Please check back a moment later.', '' ,{duration: 3});
         }

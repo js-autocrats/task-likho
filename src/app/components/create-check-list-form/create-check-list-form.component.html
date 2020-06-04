@@ -1,3 +1,5 @@
+{{checkListForm}}
+
 <form [formGroup]="checkListForm" (ngSubmit)="onSubmit()">
     <div fxLayout="column">
         <div fxLayout="column">
@@ -26,7 +28,7 @@
 
             <mat-form-field color="accent" appearance="outline" fxFlex="50%">
                 <mat-label>Due Time</mat-label>
-                    <input matInput atp-time-picker (clcik)="open()" formControlName="dueTime">
+                    <input matInput atp-time-picker (clcik)="openClockPopup()" formControlName="dueTime">
                 <mat-icon matSuffix>alarm</mat-icon>
             </mat-form-field>
 

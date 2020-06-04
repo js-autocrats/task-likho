@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Task, CheckList } from '../models/task_model';
+import { Task, CheckList, CheckListFormType } from '../models/task_model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -14,10 +15,30 @@ export class CheckListService {
     constructor(private httpClient: HttpClient) { }
     
     /**
-     * Create a checkList for a task
+     * Create or edit a checkList for a task
      */
-    createCheckList(taskId: string, checkList: CheckList) {
-        const url = `${this.baseUrl}?taskId=${taskId}`;
-        return this.httpClient.post<CheckList>(url, checkList);
+    createOrEditCheckList(itemId: string, checkList: CheckList, formType: string) {
+        let url: string;
+        
+        formType != CheckListFormType.addCheckList 
+            ? url = `${this.baseUrl}/${itemId}` 
+            : url =  `${this.baseUrl}?taskId=${itemId}`;
+        
+        return this.httpClient.post<CheckList>(url, checkList).pipe(
+            map(response => {
+                const result: any = response;
+                return result;
+            })
+        );
+    }
+
+    deleteACheckList(checkListId) {
+        const url = `${this.baseUrl}/${checkListId}`;
+        return this.httpClient.delete(url).pipe(
+            map(response => {
+                const result: any = response;
+                return result;
+            })
+        );
     }
 }

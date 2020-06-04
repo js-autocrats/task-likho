@@ -32,3 +32,12 @@ export interface CheckList {
   checkListId: string;
   isChecked: boolean;
 }
+
+export class CheckListForm {
+  constructor(public type: CheckListFormType){}
+}
+
+export enum CheckListFormType {
+  addCheckList = 'ADDCHECKLIST',
+  editCheckList = 'EDITCHECKLIST',
+}
