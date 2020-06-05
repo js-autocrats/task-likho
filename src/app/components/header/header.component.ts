@@ -14,15 +14,16 @@ export class HeaderComponent implements OnInit {
   authButton: string;
 
   ngOnInit(): void {
-    console.log(this.router.events); 
+    console.log(this.router.events);
     this.router.events.subscribe(val => {
-      if(val instanceof  NavigationEnd) {
-        val.url == '/home' ? this.authButton = 'Logout' : this.authButton = 'Login';
+      if (val instanceof NavigationEnd) {
+        val.url === '/home' ? this.authButton = 'Logout' : this.authButton = 'Login';
       }
     });
   }
 
   logout() {
     localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

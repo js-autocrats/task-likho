@@ -41,6 +41,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     LabelsViewComponent,
     DateViewerComponent,
     LoginViewComponent,
-    SearchFilterTaskComponent
+    SearchFilterTaskComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'js-autocrats' }),
