@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
     console.log(this.router.events);
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
-        val.url === '/home' ? this.authButton = 'Logout' : this.authButton = 'Login';
+        this.authButton = val.url === '/home' ? 'Logout' : 'Login';
       }
     });
   }

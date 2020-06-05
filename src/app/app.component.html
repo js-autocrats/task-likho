@@ -2,5 +2,7 @@
   <app-header></app-header>
 
   <router-outlet></router-outlet>
-  <app-create-task></app-create-task>
+  <div class="add-button">
+    <app-create-task [isEdit]="false"></app-create-task>
+  </div>
 </div>

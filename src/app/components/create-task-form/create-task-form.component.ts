@@ -1,10 +1,12 @@
-import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, OnInit, OnChanges, OnDestroy, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { TaskService } from 'src/app/services/task.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Task } from 'src/app/models/task_model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-task-form',
@@ -29,13 +31,28 @@ export class CreateTaskFormComponent implements OnInit, OnChanges, OnDestroy {
     dueDate: new FormControl(new Date().toISOString(), [Validators.required])
   });
 
-  constructor(private taskService: TaskService, public dialogRef: MatDialogRef<CreateTaskFormComponent>, ) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public taskData: any,
+    private taskService: TaskService,
+    public dialogRef: MatDialogRef<CreateTaskFormComponent>,
+    private snackBar: MatSnackBar) { }
 
   get labelsSelected(): FormArray {
     return this.taskForm.get('labels') as FormArray;
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+    if (this.taskData?.task?.id) {
+      this.taskForm.patchValue({
+        title: this.taskData?.task?.title,
+        description: this.taskData?.task?.description,
+        status: this.taskData?.task?.status,
+        labels: this.taskData?.task?.labels,
+        dueDate: new Date(this.taskData?.task?.dueDate).toISOString()
+      });
+    }
+  }
 
   ngOnChanges(): void { }
 
@@ -47,12 +64,41 @@ export class CreateTaskFormComponent implements OnInit, OnChanges, OnDestroy {
 
   onSubmit() {
     console.log(this.taskForm?.value);
-    this.taskService.createTask(this.taskForm?.value)
-      .pipe(takeUntil(this.unSubscribe))
-      .subscribe(res => {
-        console.log(res);
-        this.dialogRef.close();
-      });
+    if (!this.taskData?.task?.id) {
+      this.taskService.createTask(this.taskForm?.value)
+        .pipe(takeUntil(this.unSubscribe))
+        .subscribe(res => {
+          console.log(res);
+          this.snackBar.open('Task Created SuccessFully', '', {
+            duration: 2000,
+          });
+          this.dialogRef.close();
+        }, error => {
+          this.snackBar.open('Something went wrong!', '', {
+            duration: 2000,
+          });
+        });
+    } else {
+      this.taskData.task.title = this.taskForm.value.title;
+      this.taskData.task.description = this.taskForm.value.description;
+      this.taskData.task.status = this.taskForm.value.status;
+      this.taskData.task.labels = this.taskForm.value.labels;
+      this.taskData.task.dueDate = this.taskForm.value.dueDate;
+      console.log("Update For  :: ", this.taskData?.task);
+      this.taskService.updateTask(this.taskData.task)
+        .pipe(takeUntil(this.unSubscribe))
+        .subscribe(res => {
+          console.log(res);
+          this.snackBar.open('Task updated SuccessFully', '', {
+            duration: 2000,
+          });
+          this.dialogRef.close();
+        }, error => {
+          this.snackBar.open('Something went wrong!', '', {
+            duration: 2000,
+          });
+        });
+    }
   }
 
   ngOnDestroy() {

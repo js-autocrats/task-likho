@@ -2,26 +2,26 @@
   <mat-accordion>
     <mat-expansion-panel>
       <mat-expansion-panel-header fxLayout>
-        
+
         <mat-panel-title fxFlex="40" class="mr-0 w-40">
           {{task?.title}}
         </mat-panel-title>
-        
+
         <mat-panel-description fxFlex class="w-25">
           <div fxLayout fxLayoutAlign="space-between" class="w-100">
-            <div fxFlex="75%" fxHide.xs>
-              <p class="text-ellipse m-0" >{{task?.description}}</p>
+            <div fxFlex="75%" fxFlex.sm="25%" fxHide.xs>
+              <p class="text-ellipse m-0">{{task?.description}}</p>
             </div>
             <div fxFlex fxLayoutAlign="end center">
               <app-date-viewer [date]="task?.dueDate"></app-date-viewer>
             </div>
           </div>
         </mat-panel-description>
-      
+
       </mat-expansion-panel-header>
 
       <!-- circular progress indicatior -->
-        <!-- <circle-progress
+      <!-- <circle-progress
           [percent]="portionOfTaskCompleted"
           [animationDuration]="300"
         ></circle-progress> -->
@@ -32,12 +32,16 @@
         </button>
       </div>
 
-      <div *ngFor="let item of task?.checkList; let i = index"> 
-        <app-check-list-tile [checkListItem]="item" [shareOfCheckListInTask]="singleCheckListPartInTask "></app-check-list-tile>
+      <div *ngFor="let item of task?.checkList; let i = index">
+        <app-check-list-tile [checkListItem]="item" [shareOfCheckListInTask]="singleCheckListPartInTask ">
+        </app-check-list-tile>
       </div>
 
 
       <mat-action-row fxLayout fxLayoutGap="10px" class="pr-3">
+        <div class="edit-task">
+          <app-create-task [task]="task" [isEdit]="true"></app-create-task>
+        </div>
         <app-status-view [status]="task?.status"></app-status-view>
         <app-labels-view [labels]="task?.labels"></app-labels-view>
       </mat-action-row>

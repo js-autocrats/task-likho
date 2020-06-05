@@ -1,5 +1,8 @@
-<div class="add-button">
-  <button mat-fab color="accent" matTooltip="Create Task" aria-label="create task button" (click)="openDialog()">
-    <mat-icon>add</mat-icon>
-  </button>
-</div>
+<button *ngIf="!isEdit" mat-fab color="accent" matTooltip="Create Task" aria-label="create task button"
+  (click)="openDialog()">
+  <mat-icon>add</mat-icon>
+</button>
+
+<button *ngIf="isEdit" mat-icon-button matTooltip="Create Task" aria-label="create task button" (click)="openDialog()">
+  <mat-icon color="primary">create</mat-icon>
+</button>
