@@ -50,14 +50,10 @@ export class SearchFilterTaskComponent implements OnInit, OnChanges {
 
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
-    console.log(changes)
     for (let p in changes) {
       if (p.length) {
         let c = changes[p];
         this._taskDetails = c.currentValue;
-        // c.currentValue?.forEach(task => {
-        //   this._taskDetails.push(task?.title);
-        // });
       }
     }
   }

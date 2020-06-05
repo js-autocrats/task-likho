@@ -19,14 +19,12 @@ export class AuthGuard implements CanActivate {
       const currentUser = localStorage?.getItem('userprofileData');
 
       if (currentUser === null && (url === '/home')) {
-        debugger
         this.router.navigate(['/login']);
         return false;
       } else {
         return true;
       }
     } else {
-      debugger
       this.router.navigate(['/login']);
       return false;
     }
