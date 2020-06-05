@@ -42,6 +42,11 @@
         <div class="edit-task">
           <app-create-task [task]="task" [isEdit]="true"></app-create-task>
         </div>
+        <div class="edit-task delete-task">
+          <button mat-icon-button matTooltip="Delete Task" aria-label="Delete task button" (click)="deleteTask()">
+            <mat-icon color="warn">delete</mat-icon>
+          </button>
+        </div>
         <app-status-view [status]="task?.status"></app-status-view>
         <app-labels-view [labels]="task?.labels"></app-labels-view>
       </mat-action-row>
