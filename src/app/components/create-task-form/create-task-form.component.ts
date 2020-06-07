@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Task } from 'src/app/models/task_model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from 'src/app/services/notifications.service';
 
 @Component({
   selector: 'app-create-task-form',
@@ -35,7 +36,8 @@ export class CreateTaskFormComponent implements OnInit, OnChanges, OnDestroy {
     @Inject(MAT_DIALOG_DATA) public taskData: any,
     private taskService: TaskService,
     public dialogRef: MatDialogRef<CreateTaskFormComponent>,
-    private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar,
+    private notificationService: NotificationService) { }
 
   get labelsSelected(): FormArray {
     return this.taskForm.get('labels') as FormArray;
@@ -72,6 +74,7 @@ export class CreateTaskFormComponent implements OnInit, OnChanges, OnDestroy {
           this.snackBar.open('Task Created SuccessFully', '', {
             duration: 2000,
           });
+          this.notificationService.onTaskCreated();
           this.dialogRef.close();
         }, error => {
           this.snackBar.open('Something went wrong!', '', {
@@ -84,7 +87,6 @@ export class CreateTaskFormComponent implements OnInit, OnChanges, OnDestroy {
       this.taskData.task.status = this.taskForm.value.status;
       this.taskData.task.labels = this.taskForm.value.labels;
       this.taskData.task.dueDate = this.taskForm.value.dueDate;
-      console.log("Update For  :: ", this.taskData?.task);
       this.taskService.updateTask(this.taskData.task)
         .pipe(takeUntil(this.unSubscribe))
         .subscribe(res => {

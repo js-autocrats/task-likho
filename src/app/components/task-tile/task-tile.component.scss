@@ -7,14 +7,9 @@
     }
     mat-action-row {
         padding: 12px 8px 12px 24px !important;
+        justify-content: space-between !important;
+        align-items: center !important;
     }
+
 }
 
-.edit-task {
-  position: absolute;
-  left: 16px;
-  top: 125px;
-}
-.delete-task {
-  left: 45px !important;
-}

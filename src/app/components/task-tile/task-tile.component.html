@@ -1,6 +1,6 @@
 <div class="mb-3">
   <mat-accordion>
-    <mat-expansion-panel>
+    <mat-expansion-panel (afterExpand)="getAllCheckListByTaskId(task?.id)">
       <mat-expansion-panel-header fxLayout>
 
         <mat-panel-title fxFlex="40" class="mr-0 w-40">
@@ -32,24 +32,28 @@
         </button>
       </div>
 
-      <div *ngFor="let item of task?.checkList; let i = index">
-        <app-check-list-tile [checkListItem]="item" [shareOfCheckListInTask]="singleCheckListPartInTask ">
+      <div *ngFor="let item of checkList; let i = index">
+        <app-check-list-tile [checkListItem]="item" [shareOfCheckListInTask]="singleCheckListPartInTask">
         </app-check-list-tile>
       </div>
 
+      <div id="#task-tile ">
 
-      <mat-action-row fxLayout fxLayoutGap="10px" class="pr-3">
-        <div class="edit-task">
-          <app-create-task [task]="task" [isEdit]="true"></app-create-task>
-        </div>
-        <div class="edit-task delete-task">
-          <button mat-icon-button matTooltip="Delete Task" aria-label="Delete task button" (click)="deleteTask()">
-            <mat-icon color="warn">delete</mat-icon>
-          </button>
-        </div>
-        <app-status-view [status]="task?.status"></app-status-view>
-        <app-labels-view [labels]="task?.labels"></app-labels-view>
-      </mat-action-row>
+        <mat-action-row fxLayout fxLayoutGap="10px" class="pr-3">
+          <div fxLayout>
+            <div>
+              <app-create-task [task]="task" [isEdit]="true"></app-create-task>
+            </div>
+            <div>
+              <button mat-icon-button matTooltip="Delete Task" aria-label="Delete task button" (click)="deleteTask()">
+                <mat-icon color="warn">delete</mat-icon>
+              </button>
+            </div>
+          </div>
+          <app-status-view [status]="task?.status"></app-status-view>
+          <app-labels-view [labels]="task?.labels"></app-labels-view>
+        </mat-action-row>
+      </div>
 
 
 

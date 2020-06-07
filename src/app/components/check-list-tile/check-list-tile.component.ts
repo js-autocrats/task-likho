@@ -15,24 +15,24 @@ import { CreateCheckListFormComponent } from '../create-check-list-form/create-c
   styleUrls: ['./check-list-tile.component.scss']
 })
 export class CheckListTileComponent implements OnInit {
-  
-  @Input() checkListItem: CheckList;
+
+  @Input() checkListItem: any;
   @Input() shareOfCheckListInTask: number;
   portionOfTaskComplete: number = 0;
-  
+
   constructor(
     private notifier: NotificationService,
     private checkListService: CheckListService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
-    ) { }
-    
+  ) { }
+
   unSubscribe = new Subject();
   ngOnInit(): void {
   }
 
   /**
-   * 
+   *
    * @param event checkbox click event
    * @param checkListItem passing the checklist obj
    */
@@ -59,14 +59,14 @@ export class CheckListTileComponent implements OnInit {
    * @param checListItem checkListObj to edit
    */
   editCheckList(checListItem: CheckList) {
-    const dialogRef = this.dialog.open(CreateCheckListFormComponent,{
+    const dialogRef = this.dialog.open(CreateCheckListFormComponent, {
       width: '600px',
-      data: { checkList: this.checkListItem, formType: CheckListFormType.editCheckList},
+      data: { checkList: this.checkListItem, formType: CheckListFormType.editCheckList },
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        this.snackBar.open('Check list is created successfully','', {
+      if (result) {
+        this.snackBar.open('Check list is created successfully', '', {
           duration: 2000,
         })
       }
@@ -75,12 +75,12 @@ export class CheckListTileComponent implements OnInit {
 
   /**
    * CheckList id to delete it completely
-   * @param checkListId 
+   * @param checkListId
    */
-  deleteACheckList(checkListId: string) {
-    this.checkListService.deleteACheckList(checkListId).subscribe(response => {
-      if(response.code == 200){
-        this.snackBar.open('checkList delete successfully !', 'OK', {duration: 2000});
+  deleteACheckList(id: number) {
+    this.checkListService.deleteACheckList(id).subscribe(response => {
+      if (response.code == 200) {
+        this.snackBar.open('checkList delete successfully !', 'OK', { duration: 2000 });
       }
     });
   }

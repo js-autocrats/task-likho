@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   serviceDomain: 'https://stackhack-autocrats.herokuapp.com/task-api'
+  // serviceDomain: 'http://localhost:3000/task-api'
 };
 
 /*

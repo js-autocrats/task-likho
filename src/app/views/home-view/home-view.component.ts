@@ -4,6 +4,7 @@ import { TaskService } from 'src/app/services/task.service';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { takeUntil } from 'rxjs/operators';
+import { NotificationService } from 'src/app/services/notifications.service';
 
 @Component({
   selector: 'app-home-view',
@@ -17,18 +18,28 @@ export class HomeViewComponent implements OnInit, OnDestroy {
   unSubscribe = new Subject();
 
   constructor(
-    private taskService: TaskService
+    private taskService: TaskService,
+    private notificationService: NotificationService,
   ) {
+    this.getAllTasks();
+  }
+
+  ngOnInit(): void {
+    this.notificationService.taskCreateTriggered.subscribe(res => {
+      this.getAllTasks();
+    });
+
+
+  }
+
+  getAllTasks(): any {
     this.taskService.getAll()
       .pipe(takeUntil(this.unSubscribe))
       .subscribe(res => {
         this.tasksList = res;
         this.filteredTaskList = this.tasksList;
       }
-    );
-  }
-
-  ngOnInit(): void {
+      );
   }
 
   onTaskFilter(value): any {
@@ -38,6 +49,8 @@ export class HomeViewComponent implements OnInit, OnDestroy {
       this.filteredTaskList = this.tasksList;
     }
   }
+
+
 
   ngOnDestroy() {
     this.unSubscribe.next();

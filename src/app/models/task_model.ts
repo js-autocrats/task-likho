@@ -26,15 +26,21 @@ export interface CheckListStats {
 }
 
 export interface CheckList {
-  title: string;
-  description: string;
-  id: string;
-  checkListId: string;
+  CT: string;
+  LUT: string;
+  id: number;
+  items: {
+    description: string;
+    dueDate: Date;
+    dueTime: string;
+    title: string;
+  };
+  taskId: string;
   isChecked: boolean;
 }
 
 export class CheckListForm {
-  constructor(public type: CheckListFormType){}
+  constructor(public type: CheckListFormType) { }
 }
 
 export enum CheckListFormType {

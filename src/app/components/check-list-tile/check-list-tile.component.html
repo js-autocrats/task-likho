@@ -1,14 +1,15 @@
 <div class="mb-2 bb-1" fxLayout fxLayoutAlign="space-between center">
-    <mat-checkbox class="m-0" (change)="OnChange($event)">
-        <span [innerHtml]="checkListItem?.title" [ngClass]="{'strikeOff': checkListItem?.isChecked}"></span>
-    </mat-checkbox>
+  <mat-checkbox class="m-0" (change)="OnChange($event)">
+    <span [innerHtml]="checkListItem?.data?.items?.title"
+      [ngClass]="{'strikeOff': checkListItem?.data?.isChecked}"></span>
+  </mat-checkbox>
 
-    <div fxLayout>
-        <button mat-icon-button color="warn" aria-label="Edit checklist">
-            <mat-icon class="h5 mr-3" (click)="editCheckList(checkListItem)">edit</mat-icon>
-        </button>
-        <button mat-icon-button color="warn" aria-label="Delete checklist">
-            <mat-icon class="h5" (click)="deleteACheckList(checkListItem.checkListId)">delete</mat-icon>
-        </button>
-    </div>
+  <div fxLayout>
+    <button mat-icon-button color="warn" aria-label="Edit checklist">
+      <mat-icon class="h5 mr-3" (click)="editCheckList(checkListItem?.data)">edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" aria-label="Delete checklist">
+      <mat-icon class="h5" (click)="deleteACheckList(checkListItem?.data?.id)">delete</mat-icon>
+    </button>
+  </div>
 </div>
