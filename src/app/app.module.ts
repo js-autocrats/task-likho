@@ -42,6 +42,8 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -59,14 +61,15 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     DateViewerComponent,
     LoginViewComponent,
     SearchFilterTaskComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'js-autocrats' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
+    CommonModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     AmazingTimePickerModule,

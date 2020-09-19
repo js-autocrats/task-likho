@@ -33,7 +33,8 @@ export class LoginViewComponent implements OnInit {
         this.auth2 = window['gapi'].auth2.init({
           client_id: this.loginClintId,
           cookiepolicy: 'single_host_origin',
-          scope: 'profile email'
+          ux_mode: "redirect",
+          scope: 'profile email openid'
         });
         this.prepareLoginButton();
       });
